@@ -1,5 +1,5 @@
 # debian_server
-Ich nutze diese Files eigentlich für mich selbst, aber wenn Ihr es für Euch forken wollt, dann bedient Euch einfach
+Ich nutze diese Files eigentlich für mich selbst, aber wenn Ihr es für Euch forken wollt, dann bedient Euch einfach. Aber denkt daran, dass ich das nur rudimentär geschrieben habe und nicht darauf bedacht war, auf jedem System zu laufen. IHR HANDELT AUF EIGENE GEFAHR!!!
 
 
 Für die Installation einen Steam-Gamingservers:
