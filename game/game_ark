@@ -16,14 +16,14 @@ case "$1" in
         cd /root/Steam/
 		./steamcmd.sh +login anonymous +app_update 376030 validate +exit
 		cd /root/Steam/steamapps/common/ARK\ Survival\ Evolved\ Dedicated\ Server/ShooterGame/Binaries/Linux/
-		./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True -server -log
+		./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True&noTributeDownloads=True -server -log
         ;;
 	
 	starthup)
         cd /root/Steam/
 		./steamcmd.sh +login anonymous +app_update 376030 validate +exit
 		cd /root/Steam/steamapps/common/ARK\ Survival\ Evolved\ Dedicated\ Server/ShooterGame/Binaries/Linux/
-		nohup ./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True -server -log
+		nohup ./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True&noTributeDownloads=True -server -log
         ;;
 		
     stop)
@@ -34,7 +34,7 @@ case "$1" in
         cd /root/Steam/
 		./steamcmd.sh +login anonymous +app_update 376030 validate +exit
 		cd /root/Steam/steamapps/common/ARK\ Survival\ Evolved\ Dedicated\ Server/ShooterGame/Binaries/Linux/
-		./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True -server -log &
+		./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True&noTributeDownloads=True -server -log &
         ;;
 	install)	
 		#eventuell in die sources.list      deb http://ftp.debian.org/debian experimental main    eintragen

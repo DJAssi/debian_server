@@ -5,6 +5,8 @@ sed -i 's/Port 22/Port 24/g' /etc/ssh/sshd_config
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 cd /root/
+wget https://raw.githubusercontent.com/DJAssi/debian_server/master/game/game_ark
+chmod 744 game_ark
 apt-get update
 apt-get install lib32gcc1
 mkdir /root/Steam
