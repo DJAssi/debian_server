@@ -1,0 +1,55 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          Startet das Spiel Ark
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Für das Spiel ARK
+# Description:       Längere Bechreibung
+### END INIT INFO
+# Author: Andreas Kasper <andreas.kasper@goo1.de>
+
+# Aktionen
+case "$1" in
+    start)
+        cd /root/Steam/
+		./steamcmd.sh +login anonymous +app_update 376030 validate +exit
+		cd /root/Steam/steamapps/common/ARK\ Survival\ Evolved\ Dedicated\ Server/ShooterGame/Binaries/Linux/
+		./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True -server -log
+        ;;
+	
+	starthup)
+        cd /root/Steam/
+		./steamcmd.sh +login anonymous +app_update 376030 validate +exit
+		cd /root/Steam/steamapps/common/ARK\ Survival\ Evolved\ Dedicated\ Server/ShooterGame/Binaries/Linux/
+		nohup ./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True -server -log
+        ;;
+		
+    stop)
+        pkill ShooterGameServer
+        ;;
+    restart)
+		pkill ShooterGameServer
+        cd /root/Steam/
+		./steamcmd.sh +login anonymous +app_update 376030 validate +exit
+		cd /root/Steam/steamapps/common/ARK\ Survival\ Evolved\ Dedicated\ Server/ShooterGame/Binaries/Linux/
+		./ShooterGameServer TheIsland?listen?SessionName=[Ger]\ game4p.de\ Community\ Server?ServerPassword=?ServerAdminPassword=Flipper6?AllowThirdPersonPlayer=True?MapPlayerLocation=True?ServerCrosshair=True -server -log &
+        ;;
+	install)	
+		#eventuell in die sources.list      deb http://ftp.debian.org/debian experimental main    eintragen
+		apt-get install lib32gcc1
+		apt-get -t testing install libc6-dev
+		mkdir /root/Steam
+		cd /root/Steam
+		wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+		tar -xvzf steamcmd_linux.tar.gz
+		cd /root/Steam/
+		./steamcmd.sh +login anonymous +app_update 376030 validate +exit
+		;;
+	backup)
+		tar -cvzf backup_ARK.tar.gz /root/Steam/steamapps/common/ARK\ Survival\ Evolved\ Dedicated\ Server/ShooterGame/Saved
+		;;
+esac
+
+exit 0
