@@ -38,8 +38,23 @@ case "$1" in
         ;;
 	install)	
 		#eventuell in die sources.list      deb http://ftp.debian.org/debian experimental main    eintragen
+		while true; do
+			read -p "Soll testing in die sources.list eingetragen werden?" yn
+			case $yn in
+				[YyJj]* ) 
+					echo "deb http://ftp.debian.org/debian/ testing non-free contrib main" >> /etc/apt.sources.list
+					break
+					;;
+				[Nn]* ) break;;
+				* ) echo "Bitte antworte mit JA oder NEIN.";;
+			esac
+		done
+		
 		apt-get install lib32gcc1
 		apt-get -t testing install libc6-dev
+		
+		
+		
 		mkdir /root/Steam
 		cd /root/Steam
 		wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
